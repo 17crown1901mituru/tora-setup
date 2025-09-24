@@ -1,0 +1,11 @@
+git clone https://github.com/17crown1901mituru/tora-setup.git
+​ディレクトリに移動
+ダウンロードしたリポジトリのディレクトリに移動します。
+cd tora-setup
+​スクリプトの実行
+setup_proxychains.sh を実行して、proxychainsの設定を自動で行います。
+chmod +x setup_proxychains.sh
+./setup_proxychains.sh
+​次に、start_proxy.sh を実行して、プロキシサーバーを起動します。
+chmod +x start_proxy.sh
+./start_proxy.sh
