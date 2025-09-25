@@ -39,5 +39,5 @@ echo "--- 全てのセットアップが完了しました ---"
 echo ""
 echo "--- プロキシの動作確認 ---"
 echo "プロキシ経由でIPアドレスを確認します..."
-./tora-setup/proxychains4 curl https://ifconfig.me
+proxychains4 curl https://ifconfig.me
 echo "--- 完了 ---"
