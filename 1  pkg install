@@ -1,2 +1,16 @@
-pkg install git openssh 
-proxychains-ng tmux
+​必要なパッケージのインストール:
+pkg install git openssh proxychains-ng tmux  
+​GitHubリポジトリのクローン:
+git clone https://github.com/17crown1901mituru/tora-setup.git  
+​ディレクトリに移動:
+cd tora-setup  
+​スクリプトの実行:
+chmod +x setup_proxychains.sh start_proxy.sh
+./setup_proxychains.sh
+./start_proxy.sh  
+​追加する補足事項
+​F-Droid版Termuxの使用を徹底:
+​pkg install が成功しない一番の原因は、Google Playストア版のTermuxを使っていることです。これは更新が止まっているため、パッケージのダウンロードに失敗します。
+​必ずF-Droidの公式ウェブサイトから最新版をインストールしてください。
+​初期設定の更新:
+​Termuxを初めてインストールしたら、pkg update および pkg upgrade を実行して、パッケージリストとシステムを最新の状態に更新しておきましょう。これはトラブルを避けるための基本です
