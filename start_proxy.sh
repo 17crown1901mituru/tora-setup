@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Termuxのバッテリー最適化を無効化し、スリープしないようにする
+# Termuxのバッテリー最適化を無効化し、スリープを防止
 termux-wake-lock
 
 # SSHサーバーを起動
 sshd
 
-# 新しいtmuxセッションを作成し、その中でSSHトンネルを掘る
+# 新しいtmuxセッションを作成し、その中でSSHトンネルを張る
 # -d オプションでデタッチして、バックグラウンドで実行
 tmux new-session -d -s proxy_session "ssh -D 8080 -N localhost -p 8022"
 
