@@ -7,8 +7,8 @@ termux-wake-lock
 sshd
 
 # 新しいtmuxセッションを作成し、その中でSSHトンネルを張る
-# -d オプションでデタッチして、バックグラウンドで実行
-tmux new-session -d -s proxy_session "ssh -D 8080 -N localhost -p 8022"
+# -o StrictHostKeyChecking=no を追加して、初回接続時のフィンガープリント確認をスキップ
+tmux new-session -d -s proxy_session "ssh -o StrictHostKeyChecking=no -D 8080 -N localhost -p 8022"
 
 echo "SOCKS5プロキシ環境が起動しました。"
 echo "新しいセッションで 'tmux attach -t proxy_session' を実行すると、SSHトンネルの状況を確認できます。"
