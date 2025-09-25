@@ -11,6 +11,15 @@ pkg install -y git openssh proxychains-ng tmux
 
 echo "--- パッケージのインストールが完了しました ---"
 
+# SSH鍵を自動生成（パスフレーズなし）
+echo "--- SSH鍵を自動生成および登録します ---"
+mkdir -p ~/.ssh
+ssh-keygen -t rsa -P "" -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+
+echo "--- SSH鍵のセットアップが完了しました ---"
+
 # GitHubリポジトリをクローン（すでにクローン済みならスキップ）
 if [ ! -d "tora-setup" ]; then
   echo "GitHubリポジトリをクローンします..."
