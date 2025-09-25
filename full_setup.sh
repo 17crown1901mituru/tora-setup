@@ -14,9 +14,11 @@ echo "--- パッケージのインストールが完了しました ---"
 # SSH鍵を自動生成（パスフレーズなし）
 echo "--- SSH鍵を自動生成および登録します ---"
 mkdir -p ~/.ssh
+chmod 700 ~/.ssh # SSHディレクトリのパーミッションを設定
 ssh-keygen -t rsa -P "" -f ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa # 秘密鍵のパーミッションを設定
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-chmod 600 ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys # 公開鍵のパーミッションを設定
 
 echo "--- SSH鍵のセットアップが完了しました ---"
 
