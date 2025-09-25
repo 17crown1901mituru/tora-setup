@@ -1,0 +1,35 @@
+#!/bin/bash
+
+echo "--- Termux 環境の初期設定を開始します ---"
+
+# パッケージを最新の状態に更新
+pkg update -y
+pkg upgrade -y
+
+# 必要なパッケージをインストール
+pkg install -y git openssh proxychains-ng tmux
+
+echo "--- パッケージのインストールが完了しました ---"
+
+# GitHubリポジトリをクローン（すでにクローン済みならスキップ）
+if [ ! -d "tora-setup" ]; then
+  echo "GitHubリポジトリをクローンします..."
+  git clone https://github.com/17crown1901mituru/tora-setup.git
+else
+  echo "リポジトリはすでに存在します。最新の状態に更新します..."
+  cd tora-setup
+  git pull
+  cd ..
+fi
+
+echo "--- プロキシ設定スクリプトを実行します ---"
+
+# setup_proxychains.shスクリプトを実行
+./tora-setup/setup_proxychains.sh
+
+echo "--- プロキシサーバーを起動します ---"
+
+# start_proxy.shスクリプトを実行
+./tora-setup/start_proxy.sh
+
+echo "--- 全てのセットアップが完了しました ---"
