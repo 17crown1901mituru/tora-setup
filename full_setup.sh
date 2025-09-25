@@ -5,6 +5,8 @@ echo "--- Termux 環境の初期設定を開始します ---"
 # パッケージを最新の状態に更新
 pkg update -y
 pkg upgrade -y
+termux-change-repo -y
+ termux-setup-storage -y
 
 # 必要なパッケージをインストール
 pkg install -y git openssh proxychains-ng tmux
