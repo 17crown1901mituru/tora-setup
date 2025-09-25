@@ -24,14 +24,20 @@ fi
 
 echo "--- プロキシ設定スクリプトを実行します ---"
 
-# setup_proxychains.shスクリプトに実行権限を付与し実行
+# setup_proxychains.shに実行権限を付与し、実行
 chmod +x ./tora-setup/setup_proxychains.sh
 ./tora-setup/setup_proxychains.sh
 
 echo "--- プロキシサーバーを起動します ---"
 
-# start_proxy.shスクリプトに実行権限を付与し実行
+# start_proxy.shに実行権限を付与し、実行
 chmod +x ./tora-setup/start_proxy.sh
 ./tora-setup/start_proxy.sh
 
 echo "--- 全てのセットアップが完了しました ---"
+
+echo ""
+echo "--- プロキシの動作確認 ---"
+echo "プロキシ経由でIPアドレスを確認します..."
+./tora-setup/proxychains4 curl https://ifconfig.me
+echo "--- 完了 ---"
